@@ -127,7 +127,7 @@ var CheckID = func(c *gin.Context) {
 	case sql.ErrNoRows:
 		e := fmt.Sprintf("row with id %v not found in choice table", id)
 		log.Println(e)
-		c.JSON(400, gin.H{"error": e})
+		c.JSON(500, gin.H{"error": e})
 	case nil:
 		log.Println("we are able to fetch the choice")
 		a := Choice{id, gone, come}
